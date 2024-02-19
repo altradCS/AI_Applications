@@ -1,21 +1,18 @@
-# Assume openai>=1.0.0
-from openai import OpenAI
-import requests
-#api_key = "rVbYbTowiE91gpxyE7Csg7Tnr9GJGYKi"
 import streamlit as st
-import openai
+from openai import OpenAI
 
 # Function to interact with the OpenAI API
 def query_openai_chat(user_input):
+    
     openai.api_key = "..............."
     openai.base_model = "............."
-
     MODEL_DI = "...............f"
-    chat_completion = openai.ChatCompletion.create(
+    
+    chat_completion = openai.chat.completion.create(
         model=MODEL_DI,
         messages=[{"role": "user", "content": user_input}],
         stream=False,  # Set to False for simpler handling
-        max_tokens=100,
+        max_tokens=1000,
     )
 
     # Assuming no streaming, we directly access the first (and only) choice's message content
